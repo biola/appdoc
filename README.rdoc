@@ -1,0 +1,20 @@
+== Appdoc
+
+Appdoc allows you to easily add documentation to your web app.
+
+
+== Installation
+
+Add the following to your Gemfile
+ 
+  gem "appdoc"
+  
+From the command line
+
+  > bundle install
+  
+After you install Appdoc, you will need to run the generator:
+  
+  > rails generate appdoc
+  > rails generate acts_as_taggable_on:migration
+  > rake db:migrate
