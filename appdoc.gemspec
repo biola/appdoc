@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_dependency("declarative_authorization", "~> 0.5.3")
   s.add_dependency("haml", "~> 3.1.2")
   s.add_dependency("kaminari", "~> 0.12.4")
-  s.add_dependency("meta_search", "~> 1.1.0")
+  s.add_dependency("meta_search", "~> 1.0.6")
 end
