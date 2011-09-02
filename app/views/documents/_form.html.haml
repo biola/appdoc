@@ -6,11 +6,11 @@
     $(document).ready(function() {
       // Tagging
       $('#document_tag_list').smartTextBox({
-        submitChars: [#{AppConfig.ui.tagging.delimiter.to_json}],
-        separator: #{", ".to_json},
-        autocompleteValues: #{AppConfig.ui.tagging.suggest.tags.to_json},
-        minSearchLength: #{AppConfig.ui.tagging.suggest.min_length},
-        placeholder: "Start typing for suggested tags"
+        submitChars: [#{Appdoc.delimiter.to_json}],
+        separator: ", ",
+        autocompleteValues: #{Appdoc.autocompleteValues.to_json},
+        minSearchLength: #{Appdoc.minSearchLength},
+        placeholder: #{Appdoc.placeholder.to_json}
       });
     });
 
