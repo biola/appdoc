@@ -12,7 +12,7 @@
         %p&=document.text_content[0..100]
       %td.tags
         %ul.tags
-          -document.tag_array.each do |tag|
+          -document.tags.each do |tag|
             %li!=link_to(tag, {:controller=>'documents', :tag=>tag})
             
 !=paginate(@documents)

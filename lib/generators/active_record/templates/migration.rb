@@ -4,7 +4,6 @@ class CreateDocuments < ActiveRecord::Migration
       t.string :name
       t.text :content
       t.string :slug
-      t.string :tags
 
       t.timestamps
     end
