@@ -29,7 +29,7 @@ Customize 'config/initializers/appdoc_config.rb' to suit your needs:
     config.placeholder = "Start typing for suggested tags"
   end
   
-Appdoc uses [declarative_autorization](https://github.com/stffn/declarative_authorization), so you will have to do some basic setup to get user roles and permissions working.
+Appdoc uses {declarative_autorization}[https://github.com/stffn/declarative_authorization], so you will have to do some basic setup to get user roles and permissions working.
 
 
 
@@ -44,11 +44,11 @@ To find all the documents related to a certain page, try the following
   
 You can use this to show all the documents tagged with the current page. For example, if you have a 'Product' model, you can add the tag 'products' to the faq page you want displayed on Products#index.
 
-For more examples on how to use tags, see [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on).
+For more examples on how to use tags, see {acts-as-taggable-on}[https://github.com/mbleigh/acts-as-taggable-on].
 
 
 == Customization
 
 You may customize the styles which are located in 'public/stylesheets/jquery/smart_text_box/SmartTextBox.css'.
 
-Appdoc uses Kaminari for pagination. To customize the pagination themes, see (https://github.com/amatsuda/kaminari/blob/master/README.rdoc) under "Customizing the pagination helper".
+Appdoc uses Kaminari for pagination. To customize the pagination themes, see [https://github.com/amatsuda/kaminari/blob/master/README.rdoc] under "Customizing the pagination helper".
