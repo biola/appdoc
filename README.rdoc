@@ -51,4 +51,4 @@ For more examples on how to use tags, see {acts-as-taggable-on}[https://github.c
 
 You may customize the styles which are located in 'public/stylesheets/jquery/smart_text_box/SmartTextBox.css'.
 
-Appdoc uses Kaminari for pagination. To customize the pagination themes, see [https://github.com/amatsuda/kaminari/blob/master/README.rdoc] under "Customizing the pagination helper".
+Appdoc uses Kaminari for pagination. To customize the pagination themes, see https://github.com/amatsuda/kaminari/blob/master/README.rdoc under "Customizing the pagination helper".
