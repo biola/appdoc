@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Appdoc::VERSION
   s.authors     = ["Ryan Hall"]
   s.email       = ["ryan.e.hall@biola.edu"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/biola/appdoc"
   s.summary     = %q{Documentation for your app}
   s.description = %q{Allows you to add documents and documentation to your app}
 

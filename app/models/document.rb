@@ -8,6 +8,13 @@ class Document < ActiveRecord::Base
   
   default_scope :order => 'name'
   
+  scope :named, lambda {|name| select("DISTINCT documents.*").
+    joins("LEFT OUTER JOIN taggings ON (taggings.taggable_id = documents.id AND taggable_type = 'Document')").
+    joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").
+    where("documents.name LIKE ? OR documents.slug LIKE ? OR tags.name LIKE ?", "%#{name}%", "%#{name}%", "%#{name}%") }
+  
+  search_methods :named
+  
   acts_as_taggable
   
   def to_param

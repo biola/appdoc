@@ -5,6 +5,8 @@ Appdoc allows you to easily add documentation to your web app.
 
 == Installation
 
+Appdoc has been tested through Rails 3.0.10.
+
 Add the following to your Gemfile
  
   gem "appdoc"
@@ -27,9 +29,22 @@ Customize 'config/initializers/appdoc_config.rb' to suit your needs:
     config.placeholder = "Start typing for suggested tags"
   end
   
-Appdoc uses declarative_autorization (https://github.com/stffn/declarative_authorization), so you will have to do some basic setup to get user roles and permissions working.
+Appdoc uses [declarative_autorization](https://github.com/stffn/declarative_authorization), so you will have to do some basic setup to get user roles and permissions working.
+
+
 
 You are now good to go!
+
+
+== Usage
+
+To find all the documents related to a certain page, try the following
+
+  Document.tagged_with(controller.controller_name)
+  
+You can use this to show all the documents tagged with the current page. For example, if you have a 'Product' model, you can add the tag 'products' to the faq page you want displayed on Products#index.
+
+For more examples on how to use tags, see [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on).
 
 
 == Customization
