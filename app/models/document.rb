@@ -26,7 +26,7 @@ class Document < ActiveRecord::Base
   end
 
   def set_default_slug
-   self.slug = self.name.parameterize if self.slug.blank?
+    self.slug = self.name.parameterize if self.slug.blank?
   end
 
 end

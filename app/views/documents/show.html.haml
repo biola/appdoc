@@ -4,5 +4,5 @@
   %h3 Tags
   %ul.tags
     -@document.tags.each do |tag|
-      %li!=link_to(tag, {:controller=>'documents', :tag=>tag})
+      %li!=link_to(tag, {:controller=>'documents', :tag=>tag.to_s})
 !=action_links @document

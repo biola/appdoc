@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
       @search = Document.tagged_with(params[:tag]).search(params[:search])
       flash[:warn] = "No documents are tagged with \"#{params[:tag]}\"" if @search.count == 0 and params[:search].nil?
     end
-    @documents = @search.page(params[:page]).per(AppConfig.ui.pagination.per_page)
+    @documents = @search.page(params[:page]).per(20)
 
     respond_to do |format|
       format.html # index.html.haml
