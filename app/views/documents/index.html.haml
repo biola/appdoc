@@ -1,12 +1,12 @@
 %h2 Documentation
 
-=form_for(@search, :html=>{:class=>'search'}) do |f|
+!=form_tag(documents_path, :class => 'search', :method => :get) do
   !=hidden_field_tag(:tag, params[:tag])
-  !=f.label(:named, 'Search')
-  !=f.text_field(:named)
-  !=f.submit('Search')
+  !=label_tag(:search, 'Search')
+  !=text_field_tag(:search, params[:search])
+  !=submit_tag('Search')
 
 .search_results
-  !=render('documents', :documents=>@documents)
+  !=render('documents', :documents => @documents)
             
 !=render('index_aside')

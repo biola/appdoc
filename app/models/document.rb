@@ -8,14 +8,24 @@ class Document < ActiveRecord::Base
   
   default_scope :order => 'name'
   
-  scope :named, lambda {|name| select("DISTINCT documents.*").
-    joins("LEFT OUTER JOIN taggings ON (taggings.taggable_id = documents.id AND taggable_type = 'Document')").
+  scope :named, lambda {|name| select("DISTINCT #{table_name}.*").
+    joins("LEFT OUTER JOIN taggings ON (taggings.taggable_id = #{table_name}.id AND taggings.taggable_type = 'Document')").
     joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").
-    where("documents.name LIKE ? OR documents.slug LIKE ? OR tags.name LIKE ?", "%#{name}%", "%#{name}%", "%#{name}%") }
+    where("#{table_name}.name LIKE ? OR #{table_name}.slug LIKE ? OR tags.name LIKE ?", "%#{name}%", "%#{name}%", "%#{name}%") }
   
   search_methods :named
   
   acts_as_taggable
+  
+  def self.find_by_id_or_slug(id_or_slug)
+    where("#{table_name}.id = ? OR #{table_name}.slug = ?", id_or_slug, id_or_slug).first
+  end
+  
+  def self.find_by_id_or_slug!(id_or_slug)
+    doc = self.find_by_id_or_slug(id_or_slug)
+    raise ActiveRecord::RecordNotFound if doc.nil?
+    doc
+  end
   
   def to_param
     self.slug.blank? ? self.id.to_s : self.slug

@@ -1,72 +1,58 @@
 class DocumentsController < ApplicationController
 
-  filter_access_to :all
+  respond_to :html
+  respond_to :js, :only => :index
 
-  # GET /documents
+  # Authorization
+  if respond_to? :filter_access_to
+    filter_access_to :all # Devise
+  elsif respond_to? :check_authorization
+    check_authorization # cancan
+  end
+
   def index
-    if params[:tag].blank?
-      @search = Document.search(params[:search])
-    else
-      @search = Document.tagged_with(params[:tag]).search(params[:search])
-      flash[:warn] = "No documents are tagged with \"#{params[:tag]}\"" if @search.count == 0 and params[:search].nil?
-    end
-    @documents = @search.page(params[:page]).per(20)
+    @documents = Document.named(params[:search])
+    @documents = @documents.tagged_with(params[:tag]) unless params[:tag].blank?
+    @documents = @documents.page(params[:page])
 
-    respond_to do |format|
-      format.html # index.html.haml
+    respond_with(@documents) do |format|
+      format.html { flash.now[:alert] = "No documents were found" if @documents.empty? }
       format.js { render :partial=>'documents' }
     end
   end
 
-  # GET /documents/1
   def show
-    @document = Document.find_by_id(params[:id]) || Document.find_by_slug!(params[:id])
+    @document = Document.find_by_id_or_slug!(params[:id])
   end
 
-  # GET /documents/new
   def new
     @document = Document.new
   end
 
-  # GET /documents/1/edit
   def edit
-    @document = Document.find_by_id(params[:id]) || Document.find_by_slug(params[:id])
+    @document = Document.find_by_id_or_slug!(params[:id])
   end
 
-  # POST /documents
   def create
     @document = Document.new(params[:document])
-
     if @document.save
       flash[:notice] = 'Document was successfully created.'
-      redirect_to(@document)
-    else
-      render :action => 'new'
     end
+    respond_with @document
   end
 
-  # PUT /documents/1
   def update
-  
-    @document = Document.find_by_id(params[:id]) || Document.find_by_slug(params[:id])
-
+    @document = Document.find_by_id_or_slug!(params[:id])
     if @document.update_attributes(params[:document])
       flash[:notice] = 'Document was successfully updated.'
-      redirect_to(@document)
-    else
-      render :action => 'edit'
     end
-    
+    respond_with @document
   end
 
-  # DELETE /documents/1
   def destroy
-  
-    @document = Document.find_by_id(params[:id]) || Document.find_by_slug(params[:id])
+    @document = Document.find_by_id_or_slug!(params[:id])
     @document.destroy
-
-    redirect_to(documents_url)
-    
+    respond_with @document
   end
   
 end
