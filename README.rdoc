@@ -29,8 +29,9 @@ Customize 'config/initializers/appdoc_config.rb' to suit your needs:
     config.placeholder = "Start typing for suggested tags"
   end
   
-Appdoc uses {declarative_autorization}[https://github.com/stffn/declarative_authorization], so you will have to do some basic setup to get user roles and permissions working.
+For authentication, Appdoc supports both {devise}[https://github.com/plataformatec/devise] and {cancan}[https://github.com/ryanb/cancan].
 
+Appdoc uses {declarative_autorization}[https://github.com/stffn/declarative_authorization] for role based permissions. Though not required, this is recomended if you want to prevent certain users from creating, editing, and destroying documents. 
 
 
 You are now good to go!
@@ -48,7 +49,5 @@ For more examples on how to use tags, see {acts-as-taggable-on}[https://github.c
 
 
 == Customization
-
-You may customize the styles which are located in 'public/stylesheets/jquery/smart_text_box/SmartTextBox.css'.
 
 Appdoc uses Kaminari for pagination. To customize the pagination themes, see https://github.com/amatsuda/kaminari/blob/master/README.rdoc under "Customizing the pagination helper".

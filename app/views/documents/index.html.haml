@@ -10,3 +10,9 @@
   !=render('documents', :documents => @documents)
             
 !=render('index_aside')
+
+-if respond_to? :permitted_to?
+  -if permitted_to? :create, :documents
+    =link_to('New document', new_document_path, :id=>'new_document_link') 
+-else
+  =link_to('New document', new_document_path, :id=>'new_document_link')

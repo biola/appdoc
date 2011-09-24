@@ -23,9 +23,4 @@ class AppdocGenerator < Rails::Generators::Base
     template 'appdoc_config.rb', 'config/initializers/appdoc_config.rb'
   end
   
-  def copy_related_files
-    copy_file 'public/stylesheets/jquery/smart_text_box/SmartTextBox.css', 'public/stylesheets/jquery/smart_text_box/SmartTextBox.css'
-    copy_file 'public/stylesheets/jquery/smart_text_box/imgs/close.gif', 'public/stylesheets/jquery/smart_text_box/imgs/close.gif'
-    copy_file 'public/javascripts/SmartTextBox.js', 'public/javascripts/SmartTextBox.js'
-  end
 end

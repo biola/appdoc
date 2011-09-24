@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency("acts-as-taggable-on", ">= 2.0.0")
   s.add_dependency("haml", ">= 3.0.0")
   s.add_dependency("kaminari", ">= 0.10.0")
-  #s.add_dependency("meta_search", ">= 1.0.0")
+  s.add_dependency("meta_search", ">= 1.0.0")
 end

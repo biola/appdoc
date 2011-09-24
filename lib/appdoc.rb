@@ -3,7 +3,6 @@ require "appdoc/version"
 module Appdoc
   require 'appdoc/engine' if defined?(Rails)
   require 'acts-as-taggable-on'
-  require 'declarative_authorization'
   require 'haml'
   require 'kaminari'
   require 'meta_search'

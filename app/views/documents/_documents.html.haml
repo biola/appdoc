@@ -1,4 +1,5 @@
-.search.summary!=page_entries_info(@documents, :entry_name=>'document')
+-if respond_to? :page_entries_info
+  .search.summary!=page_entries_info(@documents, :entry_name=>'document')
 
 %table
   %tr

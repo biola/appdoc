@@ -1,21 +1,3 @@
--content_for(:head) do
-  =javascript_include_tag('jquery-ui')
-  =javascript_include_tag('SmartTextBox')
-  =stylesheet_link_tag('jquery/smart_text_box/SmartTextBox')
-  :javascript
-    $(document).ready(function() {
-      // Tagging
-      $('#document_tag_list').smartTextBox({
-        submitChars: [#{Appdoc.delimiter.to_json}],
-        separator: ", ",
-        autocompleteValues: #{Appdoc.autocompleteValues.to_json},
-        minSearchLength: #{Appdoc.minSearchLength},
-        placeholder: #{Appdoc.placeholder.to_json}
-      });
-    });
-
-=render('shared/wysiwyg')
-
 =form_for(@document) do |f|
   %dl
     %dt.name=f.label :name
@@ -24,7 +6,7 @@
     %dd.slug=f.text_field :slug
     %dt.tags=f.label :tag_list, 'Tags'
     %dd.tags
-      =f.text_field :tag_list, :maxlength => "15"
+      =f.text_field :tag_list
       %span.help_text Lower case and separated by spaces
     %dt.content=f.label :content
     %dd.content=f.text_area :content
