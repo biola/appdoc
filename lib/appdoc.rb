@@ -2,6 +2,7 @@ require "appdoc/version"
 
 module Appdoc
   require 'appdoc/engine' if defined?(Rails)
+  require 'action_links'
   require 'acts-as-taggable-on'
   require 'haml'
   require 'kaminari'

@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
+  s.add_dependency("action_links", ">= 0.1.0")
   s.add_dependency("acts-as-taggable-on", ">= 2.0.0")
   s.add_dependency("haml", ">= 3.0.0")
   s.add_dependency("kaminari", ">= 0.10.0")

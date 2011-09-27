@@ -6,13 +6,4 @@
     -@document.tags.each do |tag|
       %li!=link_to(tag, {:controller=>'documents', :tag=>tag.to_s})
 
--#!=action_links @document
-
--if respond_to? :permitted_to?
-  -if permitted_to? :edit, :documents
-    = link_to 'Edit', edit_document_path(@document)
-  -if permitted_to? :destroy, :documents 
-    = link_to 'Destroy', @document, :confirm => 'Are you sure?', :method => :delete
--else
-  = link_to 'Edit', edit_document_path(@document)
-  = link_to 'Destroy', @document, :confirm => 'Are you sure?', :method => :delete
+=action_links @document
