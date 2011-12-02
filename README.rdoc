@@ -51,3 +51,5 @@ For more examples on how to use tags, see {acts-as-taggable-on}[https://github.c
 == Customization
 
 Appdoc uses Kaminari for pagination. To customize the pagination themes, see https://github.com/amatsuda/kaminari/blob/master/README.rdoc under "Customizing the pagination helper".
+
+Appdoc also supports {will_paginate}[https://github.com/mislav/will_paginate].
