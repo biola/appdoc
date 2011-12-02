@@ -11,9 +11,20 @@ class DocumentsController < ApplicationController
   end
 
   def index
-    @documents = Document.named(params[:search])
-    @documents = @documents.tagged_with(params[:tag]) unless params[:tag].blank?
-    @documents = @documents.page(params[:page])
+    
+    if params[:search].blank?
+      @documents = Document.scoped
+    else
+      @documents = Document.named(params[:search])
+      @documents = @documents.tagged_with(params[:tag]) unless params[:tag].blank?
+    end
+    
+    # First check if using kaminari for pagination, else check for will_paginate
+    begin  
+      @documents = @documents.page(params[:page])
+    rescue NoMethodError
+      @documents = @documents.try(:paginate, :page => params[:page])
+    end
 
     respond_with(@documents) do |format|
       format.html { flash.now[:alert] = "No documents were found" if @documents.empty? }
