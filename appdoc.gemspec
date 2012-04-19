@@ -17,9 +17,9 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-  
+
+  s.add_dependency("rails", ">= 3.0.0")  
   s.add_dependency("action_links", ">= 0.1.0")
   s.add_dependency("acts-as-taggable-on", ">= 2.0.0")
   s.add_dependency("haml", ">= 3.0.0")
-  s.add_dependency("meta_search", ">= 1.0.0")
 end

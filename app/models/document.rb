@@ -13,8 +13,6 @@ class Document < ActiveRecord::Base
     joins("LEFT OUTER JOIN tags ON taggings.tag_id = tags.id").
     where("#{table_name}.name LIKE ? OR #{table_name}.slug LIKE ? OR tags.name LIKE ?", "%#{name}%", "%#{name}%", "%#{name}%") }
   
-  search_methods :named
-  
   acts_as_taggable
   
   def self.find_by_id_or_slug(id_or_slug)

@@ -5,7 +5,6 @@ module Appdoc
   require 'action_links'
   require 'acts-as-taggable-on'
   require 'haml'
-  require 'meta_search'
   
   # Settings
   mattr_accessor(:delimiter)
