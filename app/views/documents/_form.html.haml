@@ -7,7 +7,7 @@
     %dt.tags=f.label :tag_list, 'Tags'
     %dd.tags
       =f.text_field :tag_list
-      %span.help_text Lower case and separated by spaces
+      %span.help_text Lower case and separated by commas
     %dt.content=f.label :content
     %dd.content=f.text_area :content
   .buttons=f.submit 'Save'
