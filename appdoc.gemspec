@@ -10,8 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/biola/appdoc"
   s.summary     = %q{Documentation for your app}
   s.description = %q{Allows you to add documents and documentation to your app}
-
-  s.rubyforge_project = "appdoc"
+  s.license     = 'MIT'
 
   s.files         = Dir["{app,lib,config}/**/*"]
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
